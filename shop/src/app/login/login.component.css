@@ -1,0 +1,17 @@
+.lg-background {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #EEEEEE;
+  height: 100%;
+}
+
+.lg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: #FFFFFF;
+  padding: 20px;
+}

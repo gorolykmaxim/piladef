@@ -1,0 +1,34 @@
+<div class="main-background">
+  <div class="main-placeholder"></div>
+  <div class="main-search">
+    <mat-form-field>
+      <input matInput placeholder="Product name" [matAutocomplete]="search" [(ngModel)]="name">
+      <mat-autocomplete #search="matAutocomplete">
+        <mat-option *ngFor="let product of products" [value]="product.name">
+          <span>{{product.name}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="main-body">
+    <div class="main-filter">
+      <h2 class="mat-h2">Filter products by</h2>
+      <mat-form-field>
+        <input matInput placeholder="Price" type="number" [(ngModel)]="price">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Amount" type="number" [(ngModel)]="amount">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="updateProductList()">Apply</button>
+    </div>
+    <div class="main-list">
+      <mat-list>
+        <mat-list-item *ngFor="let product of products">
+          <mat-icon matListIcon (click)="addToUsersBasket(product)" class="main-list-item">shopping_cart</mat-icon>
+          <h3 matLine>{{product.name}}</h3>
+          <p matLine>Amount - {{product.amount}} Price - {{product.price}}$</p>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>

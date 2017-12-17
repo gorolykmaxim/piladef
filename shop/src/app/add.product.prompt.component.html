@@ -1,0 +1,19 @@
+<div mat-dialog-title>Add new product</div>
+<div mat-dialog-content class="add-dialog-inputs-container">
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="name" [formControl]="nameFormControl">
+    <mat-error *ngIf="!isNameValid()">Please, enter the name of the product</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Amount" [(ngModel)]="amount" [formControl]="amountFormControl">
+    <mat-error *ngIf="!isAmountValid()">There should be at least 1 item of the product</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Price" [(ngModel)]="price" [formControl]="priceFormControl">
+    <mat-error *ngIf="!isPriceValid()">'Price should be bigger then 0'</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="create()">Add</button>
+  <button mat-button (click)="close()">Cancel</button>
+</div>

@@ -1,0 +1,30 @@
+version: '2'
+
+networks:
+  backend:
+
+services:
+  db-initializer:
+    build: db-initializer
+    networks:
+      - backend
+    depends_on:
+      - restheart
+  shop:
+    build: shop
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+  restheart:
+    image: softinstigate/restheart
+    networks:
+      - backend
+    container_name: restheart
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:3.6
+    networks:
+      - backend
+    container_name: mongodb

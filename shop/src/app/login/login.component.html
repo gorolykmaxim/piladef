@@ -1,0 +1,11 @@
+<div class="lg-background">
+  <div class="lg-container">
+    <mat-form-field>
+      <input matInput placeholder="Login" [(ngModel)]="login">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="authorize()">Login</button>
+  </div>
+</div>
